@@ -1,0 +1,73 @@
+
+FUNCTION_BLOCK auto
+
+VAR_INPUT				// dane wejsciowe
+	rx : REAL;                      // roznica odlegosci miedzy autem a przeszkoda os X
+        ry : REAL;                      // roznica odlegosci os Y
+END_VAR
+
+VAR_OUTPUT				// dane wyjsciowe
+	ster_os_x : REAL;               // zmienna odpowiedzialna za sterowanie autem w osi X
+        ster_os_y : REAL;               // zmienna odpowiedzialna za sterowanie autem w osi Y
+END_VAR
+
+FUZZIFY rx                                                          //odleglosc miedzy obiektami Fuzzify input variable 'service': {'poor', 'good' , 'excellent'}
+	TERM z_tylu := (-101,0) (-100,1) (-10,1) (0,0) ;                   // termy dla sterowaia w osi x
+        TERM kolizja :=(-1,0) (0,1) (50,1) (90,1) (100,0); 
+	TERM z_przodu := (90,0) (100,1) (101,0) ;
+END_FUZZIFY
+
+FUZZIFY ry                                                          // Fuzzify input variable 'service': {'poor', 'good' , 'excellent'}
+	TERM daleko_polewj := (-100,1) (-60,1) (-50,0) ;  
+        TERM blisko_polewej := (-60,0) (-50,1) (-10,1) (0,0) ;  
+        TERM blisko_poprawej := (0,0) (10,1) (50,1) (60,0);
+        TERM daleko_poprawej   := (50,0) (60,1) (100,1); 
+END_FUZZIFY
+
+DEFUZZIFY ster_os_x
+        TERM do_tylu   := (-21,0)(-20,1) (-10,1) (0,0);             // do tylu tylko do informowaniu ze punkt ominiety dlatego malo go w regulach gdy do ruchu duzo zakleszczen
+	TERM do_przodu := (0,0) (10,1) (20,1) (21,0) ;  
+	METHOD : COG;                                               // środek ciezkosci defuzyfikacja
+	DEFAULT := 0;                                               // domyslnie zero jezeli nie defuz.
+END_DEFUZZIFY
+
+DEFUZZIFY ster_os_y			
+	TERM do_gory := (-21,0)(-20,1) (-3,1) (0,0) ;               // tu jest problem z zerem albo ma skrecac w lewo albo w prawo
+                                                                    // jesli dwa punkty maja tego samego y przesuwajac zbior do gory z (0,0) na (5,0) uzyskujesz skret w jedna strone
+                                                                    // przykad  TERM do_gory (-21,0)(-20,1) (-3,1) (5,0)
+        TERM do_dolu := (0,0) (3,1) (20,1) (21,0) ;               
+        METHOD : COG;                                               
+                                                                // srodek ciezkosci
+	DEFAULT := 0;                                               // domyslnie 0
+END_DEFUZZIFY
+
+RULEBLOCK No1
+	AND : MIN;                                                  // Use 'min' for 'and' ( 'max' for 'or' to DeMorgan's Law)
+	ACT : MIN;                                                  // Use 'min' aktywacja
+	ACCU : MAX;                                                 // Use 'max' accumulation 
+
+	RULE 1 : IF rx IS kolizja AND ry IS blisko_polewej THEN ster_os_y IS do_dolu;   // warunki sterowania
+        RULE 2 : IF rx IS kolizja AND ry IS blisko_polewej THEN ster_os_x IS  do_przodu;  
+
+        RULE 3 : IF rx IS kolizja AND ry IS blisko_poprawej THEN ster_os_y IS do_gory; 
+        RULE 4 : IF rx IS kolizja AND ry IS blisko_poprawej THEN ster_os_x IS do_przodu;
+
+        RULE 5 : IF rx IS kolizja AND ry IS daleko_polewj THEN ster_os_x IS do_przodu;      
+        RULE 6 : IF rx IS kolizja AND ry IS daleko_polewj THEN ster_os_y IS do_dolu;  
+
+        RULE 7 : IF rx IS kolizja AND ry IS daleko_poprawej  THEN ster_os_y IS do_gory;
+        RULE 8 : IF rx IS kolizja AND ry IS daleko_poprawej THEN  ster_os_x IS do_przodu;  
+       
+       
+        RULE 9 : IF rx IS z_przodu AND ry IS daleko_polewj THEN ster_os_x IS do_przodu;
+        RULE 10 : IF rx IS z_przodu AND ry IS daleko_poprawej THEN ster_os_x IS do_przodu;
+
+ 
+        RULE 11 : IF rx IS z_przodu AND ry IS blisko_polewej  THEN ster_os_x IS do_przodu;
+        RULE 12 : IF rx IS z_przodu AND ry IS blisko_poprawej  THEN ster_os_x IS do_przodu;
+
+        RULE 13 : IF rx IS z_tylu  THEN ster_os_x IS do_przodu;
+	
+END_RULEBLOCK
+
+END_FUNCTION_BLOCK
