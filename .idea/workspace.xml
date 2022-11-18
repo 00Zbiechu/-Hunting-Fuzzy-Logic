@@ -5,34 +5,37 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="87fb4d11-31cd-482a-bc8b-de62b7cbf5ff" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/sterowanie/ApplicationWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/fcl/auto.fcl" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/fcl/auto.fcl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/fcl/przeczytaj" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/fcl/przeczytaj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sterowanieautem/LogikaRozmyta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sterowanie/LogikaRozmyta.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sterowanieautem/OknoStartowe.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sterowanie/OknoStartowe.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sterowanieautem/OknoStartowe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sterowanie/OknoStartowe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sterowanieautem/PanelRysowania.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sterowanie/PanelRysowania.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sterowanieautem/PanelRysowania.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sterowanie/PanelRysowania.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/Auto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/Prey.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/MenadzerTrasa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/MenadzerTrasa.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/Przeszkoda.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/Predator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/sterowanieautem/LogikaRozmyta.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/sterowanieautem/OknoStartowe$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/sterowanieautem/OknoStartowe$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/sterowanieautem/OknoStartowe$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/sterowanieautem/OknoStartowe$4.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/sterowanieautem/OknoStartowe$5.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/sterowanieautem/OknoStartowe.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/sterowanieautem/PanelRysowania$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/sterowanieautem/PanelRysowania.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/utils/Auto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/utils/MenadzerTrasa.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/utils/MenadzerTrasa.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/utils/Przeszkoda.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sterowanie/LogikaRozmyta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sterowanie/FuzzyLogic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sterowanie/OknoStartowe.form" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sterowanie/OknoStartowe.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sterowanie/PanelRysowania.form" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sterowanie/PanelRysowania.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sterowanie/SimulationPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utils/MenadzerTrasa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/RoadManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sterowanie/LogikaRozmyta.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sterowanie/OknoStartowe$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sterowanie/OknoStartowe$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sterowanie/OknoStartowe$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sterowanie/OknoStartowe$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sterowanie/OknoStartowe$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sterowanie/OknoStartowe.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sterowanie/PanelRysowania$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sterowanie/PanelRysowania.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/utils/MenadzerTrasa.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -51,16 +54,22 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "F:/Projekty_JAVA/Hunting-Fuzzy-Logic",
+    "last_opened_file_path": "/home/technik/IdeaProjects/Hunting-Fuzzy-Logic/src/main/resources",
     "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0"
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources" />
+    </key>
+  </component>
   <component name="RunManager">
-    <configuration name="OknoStartowe" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="sterowanie.OknoStartowe" />
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="HuntingFuzzyLogic" />
       <extension name="coverage">
         <pattern>
@@ -74,7 +83,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.OknoStartowe" />
+        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -88,10 +97,24 @@
       <updated>1666112154469</updated>
       <workItem from="1668381004783" duration="457000" />
       <workItem from="1668765898783" duration="10630000" />
+      <workItem from="1668779399502" duration="297000" />
+      <workItem from="1668779745533" duration="43000" />
+      <workItem from="1668779800133" duration="12386000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

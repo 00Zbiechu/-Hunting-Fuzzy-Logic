@@ -1,9 +1,6 @@
 package sterowanie;
 
-import java.awt.BasicStroke;
-import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
+import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
@@ -11,23 +8,30 @@ import java.io.File;
 
 import lombok.SneakyThrows;
 import utils.Prey;
-import utils.MenadzerTrasa;
+import utils.RoadManager;
 import utils.Predator;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
 
-public class PanelRysowania extends JPanel {
+public class SimulationPanel extends JPanel{
 
-    private MenadzerTrasa menadzer;
+    private RoadManager menadzer;
 
     private boolean dodaniePrzejzdu;  // gdy zmiena false dodajemy przeszkody jak true to auto i zmieniamy zpowrotem
                                       // zmienna zmieania klikniecie w przycisk dodaj aut wywolujac seter a klikniecie ustawia auto 
     private boolean preySet;     // zmienna informujaca czy auto zostalo dodane
 
-    public PanelRysowania() {
-        this.menadzer = new MenadzerTrasa();
+    BufferedImage backgroundImage;
+
+    @SneakyThrows
+    public SimulationPanel() {
+
+        this.menadzer = new RoadManager();
+
+        this.backgroundImage = ImageIO.read(new File( "src/main/resources/Background.png"));
+
         this.addMouseListener(new MouseAdapter() { // dodanie slchacza na klikniecie
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -44,24 +48,30 @@ public class PanelRysowania extends JPanel {
             }
 
         });
+
+
+
+
+
+
+
     }
 
-    private void setBackgoundAsForest(){
 
-
-
-    }
 
     @SneakyThrows
     @Override
     public synchronized void paint(Graphics g) {
+
         Graphics2D g2d = (Graphics2D) g;
 
         super.paintComponent(g);
+        g.drawImage(backgroundImage, 0, 0, null); //dodwanie tła panelu
 
         g2d.setStroke(new BasicStroke(5)); // ustawienie grubosci lini
-        g2d.setColor(Color.GREEN);
-        g2d.drawLine(830, 0, 830, 400);  // rusowanie mety
+        g2d.setColor(Color.RED);
+        g2d.drawLine(450, 0, 450, 1000);  // rusowanie mety
+
 
         if (menadzer.getPredators() != null) {
 
@@ -75,6 +85,7 @@ public class PanelRysowania extends JPanel {
 
             }
         }
+
         if (menadzer.getPrey() != null && preySet) { // rysowanie ofiary jesli została ustawiona
 
             Prey prey = menadzer.getPrey();
@@ -95,7 +106,6 @@ public class PanelRysowania extends JPanel {
     }
 
 
-
     public void setDodaniePrzejzdu(boolean dodaniePrzejzdu) {
         this.dodaniePrzejzdu = dodaniePrzejzdu;
     }
@@ -111,24 +121,9 @@ public class PanelRysowania extends JPanel {
         }
     }
 
-    public MenadzerTrasa getMenadzer() {
+    public RoadManager getMenadzer() {
         return menadzer;
     }
 
 
-//    private void initComponents() {
-//
-//        setBackground(new java.awt.Color(153, 153, 153));
-//
-//        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-//        this.setLayout(layout);
-//        layout.setHorizontalGroup(
-//            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-//            .addGap(0, 400, Short.MAX_VALUE)
-//        );
-//        layout.setVerticalGroup(
-//            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-//            .addGap(0, 300, Short.MAX_VALUE)
-//        );
-//    }
 }

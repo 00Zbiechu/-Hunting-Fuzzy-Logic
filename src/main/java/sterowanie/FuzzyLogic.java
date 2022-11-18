@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.List;
 
 
-public class LogikaRozmyta {
+public class FuzzyLogic {
     double[][] xAxisFuzzy = new double [4][201];
     double[][] yAxisFuzzy = new double [5][201];
     double[][] xAxisDirection = new double [3][41];
@@ -13,7 +13,7 @@ public class LogikaRozmyta {
     double[][] yAxisDirection = new double [3][41];
     double[][] yAxisDirectionCut = new double [4][41];
     double outY=0, outX=0;
-    public LogikaRozmyta()
+    public FuzzyLogic()
     {
         fillLogic();
     }

@@ -1,12 +1,10 @@
 package utils;
 
 import java.util.ArrayList;
-import sterowanie.LogikaRozmyta;
-import sterowanie.PanelRysowania;
+import sterowanie.FuzzyLogic;
+import sterowanie.SimulationPanel;
 
-import javax.swing.*;
-
-public class MenadzerTrasa {
+public class RoadManager {
 
 
     private ArrayList<Predator> predators;
@@ -16,11 +14,11 @@ public class MenadzerTrasa {
     private double os_y;
 
     private final int czuloscRuchu = 4;                       // zmiena odpowiedzialna za czulosc ruchu dla kazdego zbioru jesli dokonamy zmiany musi byc inna , by ruch wydawal sie liniowy nie skokowy
-    private LogikaRozmyta fuzzy;
+    private FuzzyLogic fuzzy;
 
-    public MenadzerTrasa() {
+    public RoadManager() {
         this.predators = new ArrayList<>();
-        fuzzy = new LogikaRozmyta();
+        fuzzy = new FuzzyLogic();
 
     }
 
@@ -63,7 +61,8 @@ public class MenadzerTrasa {
 
     }
 
-    public boolean wykonajRuch(PanelRysowania panel) {
+    public boolean wykonajRuch(SimulationPanel panel) {
+
 
         // ruch wykonujemy tak dopoki nie ominiemy przeszkody
         if(prey !=null) {
@@ -96,14 +95,14 @@ public class MenadzerTrasa {
                 int ry = najblisza.getY() - prey.getY();
 
                 System.out.println("rx " + rx + "  ry " + ry);
-                if (Math.abs(rx) > 100) {                                         // maksymalna wartosc i minimalna zbiorow dla wartosci wejsciowych wynosi -100 i 100 
+                if (Math.abs(rx) > 100) {                                         // maksymalna wartosc i minimalna zbiorow dla wartosci wejsciowych wynosi -100 i 100
                     rx = rx > 0 ? 100 : -100;
                 }
                 if (Math.abs(ry) > 100) {
                     ry = ry > 0 ? 100 : -100;
                 }
                 fuzzy.Fuzzify(rx, ry);                                      // obliczenia zbiorow
-                os_x = fuzzy.GetDirectionX();       //pobraniemetodasierodka ciezkosci warrtosci wyjsciowych 
+                os_x = fuzzy.GetDirectionX();       //pobraniemetodasierodka ciezkosci warrtosci wyjsciowych
                 os_y = fuzzy.GetDirectionY();
 
                 System.out.println("::os_x " + os_x + "  os_y " + os_y);
@@ -114,17 +113,17 @@ public class MenadzerTrasa {
                 for (Predator p : predators){
 
 
-                        if(p.getX()<prey.getX()){
-                            p.setX(p.getX()+2);
-                        }else{
-                            p.setX(p.getX()-2);
-                        }
+                    if(p.getX()<prey.getX()){
+                        p.setX(p.getX()+1);
+                    }else{
+                        p.setX(p.getX()-1);
+                    }
 
-                        if(p.getY()<prey.getY()){
-                            p.setY(p.getY()+2);
-                        }else{
-                            p.setY(p.getY()-2);
-                        }
+                    if(p.getY()<prey.getY()){
+                        p.setY(p.getY()+1);
+                    }else{
+                        p.setY(p.getY()-1);
+                    }
 
                 }
 
@@ -140,6 +139,8 @@ public class MenadzerTrasa {
             return false; // auto dojechalo do mety
 
         }
+
+
     }
 
 
