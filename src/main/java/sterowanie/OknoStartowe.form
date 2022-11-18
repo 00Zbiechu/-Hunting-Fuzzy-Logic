@@ -130,7 +130,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton3ActionPerformed"/>
           </Events>
         </Component>
-        <Container class="sterowanieautem.PanelRysowania" name="panelRysowania1">
+        <Container class="sterowanie.PanelRysowania" name="panelRysowania1">
 
           <Layout>
             <DimensionLayout dim="0">

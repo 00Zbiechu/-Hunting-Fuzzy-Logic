@@ -1,5 +1,5 @@
 
-FUNCTION_BLOCK auto
+FUNCTION_BLOCK prey
 
 VAR_INPUT				// dane wejsciowe
 	rx : REAL;                      // roznica odlegosci miedzy autem a przeszkoda os X

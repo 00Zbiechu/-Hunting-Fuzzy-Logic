@@ -1,5 +1,5 @@
 Kasa main jest klasa testowa mozesz z niej uruchomic wszystkie skrytpy w konsoli ogrzewanie i tipper 
-skrypt auto jest skryptem ktory jest wczytywany 
+skrypt prey jest skryptem ktory jest wczytywany
 Na stronie http://jfuzzylogic.sourceforge.net/html/index.html
 znajdziesz informacje co do biblioteki pomocniczej w ktorej zapisany jest skrypt
 mozna go przekonwertowac na klase w c++ a pozniej do javy lecz to nie bedzie naturalne w czasie zmian
@@ -9,7 +9,7 @@ Wazne a
 Na samych zbiorach rozmytych nie da sie zrobic idealnego sterowania bo algorytm nie zna otoczenia i w pewnych 
 momentach moze dochodzic do zaklinowan  jak powlaczasz pare razy to zobaczysz jednak zadanie tego nie wymagga
 
-Punkty mozesz dodawac w czasie animacji i patrzec na reakcje po kliknieciu przycisku dodaj auto klikasz na panel gdzie auto ma
+Punkty mozesz dodawac w czasie animacji i patrzec na reakcje po kliknieciu przycisku dodaj prey klikasz na panel gdzie prey ma
 sie znajdowac . Nastepnie klikajac dalej dodajesz pukty i start tworzysz watek i program sie wykonuje po dojsciu do mety 
 zielonej lini jest informacja o koncu i program jest resetowany
 

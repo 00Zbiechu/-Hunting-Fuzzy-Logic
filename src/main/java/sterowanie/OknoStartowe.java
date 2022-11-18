@@ -1,24 +1,29 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package sterowanieautem;
+package sterowanie;
 
-import static java.lang.Thread.yield;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JOptionPane;
+import javax.swing.*;
 
-/**
- *
- * @author serv
- */
-public class OknoStartowe extends javax.swing.JFrame {
 
-    /**
-     * Creates new form OknoStartowe
-     */
+public class OknoStartowe extends JFrame {
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private JSpinner animacjaSpeed;
+    private JButton jButton1;
+    private JButton jButton3;
+    private JLabel jLabel1;
+    private JLabel jLabel2;
+    private JLabel jLabel3;
+    private JPanel jPanel1;
+    private PanelRysowania panelRysowania1;
+    private JButton resetuj;
+    private JLabel valueOsX;
+    private JLabel valueOsY;
+    private JFrame frame;
+    private boolean animacjaWlaczona;
+    private Thread watekAnimacji;
+    private boolean pause;
+
     public OknoStartowe() {
         initComponents();
         frame = this;
@@ -33,7 +38,7 @@ public class OknoStartowe extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        panelRysowania1 = new sterowanieautem.PanelRysowania();
+        panelRysowania1 = new sterowanie.PanelRysowania();
         resetuj = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -228,9 +233,7 @@ public class OknoStartowe extends javax.swing.JFrame {
 
     
 
-    /**
-     * @param args the command line arguments
-     */
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -272,21 +275,5 @@ public class OknoStartowe extends javax.swing.JFrame {
     }
 
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JSpinner animacjaSpeed;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JPanel jPanel1;
-    private sterowanieautem.PanelRysowania panelRysowania1;
-    private javax.swing.JButton resetuj;
-    private javax.swing.JLabel valueOsX;
-    private javax.swing.JLabel valueOsY;
-    // End of variables declaration//GEN-END:variables
-    private javax.swing.JFrame frame;
-    private boolean animacjaWlaczona;
-    private Thread watekAnimacji;
-    private boolean pause;
+
 }
