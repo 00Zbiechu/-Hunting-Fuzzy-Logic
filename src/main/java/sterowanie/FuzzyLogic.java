@@ -16,6 +16,7 @@ public class FuzzyLogic {
     public FuzzyLogic()
     {
         fillLogic();
+
     }
     //Wypełnianie termów
     private void fillLogic()

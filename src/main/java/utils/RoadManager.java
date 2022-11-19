@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import sterowanie.FuzzyLogic;
 import sterowanie.SimulationPanel;
 
+import javax.swing.*;
+
+
 public class RoadManager {
 
 
@@ -27,19 +30,12 @@ public class RoadManager {
         return prey;
     }
 
-    public double getOs_x() {
-        return os_x;
-    }
-
-    public double getOs_y() {
-        return os_y;
-    }
 
 
 
     public void resetujProgram() {
 
-        this.predators = new ArrayList<>(); // zerowanie punktow
+        this.predators = new ArrayList<>(); // zerowanie drapieżników
         prey = null;                        // kasowanie ofiary
 
     }
@@ -94,7 +90,7 @@ public class RoadManager {
                 int rx = najblisza.getX() - prey.getX();
                 int ry = najblisza.getY() - prey.getY();
 
-                System.out.println("rx " + rx + "  ry " + ry);
+
                 if (Math.abs(rx) > 100) {                                         // maksymalna wartosc i minimalna zbiorow dla wartosci wejsciowych wynosi -100 i 100
                     rx = rx > 0 ? 100 : -100;
                 }
@@ -105,25 +101,37 @@ public class RoadManager {
                 os_x = fuzzy.GetDirectionX();       //pobraniemetodasierodka ciezkosci warrtosci wyjsciowych
                 os_y = fuzzy.GetDirectionY();
 
-                System.out.println("::os_x " + os_x + "  os_y " + os_y);
                 prey.setX(prey.getX() + (int) os_x / czuloscRuchu);             // ustawianie wspolrzednych 4 oznacza czuloscruchu
                 prey.setY(prey.getY() - (int) os_y / czuloscRuchu);
 
-                //Poruszanie predatorami na podstawie pozycji ofiary
+                //Poruszanie predatorami na podstawie pozycji ofiary + przypadek schwytania ofiary
                 for (Predator p : predators){
 
+                    if(p.getDistanceFromPrey(prey)<20){
 
-                    if(p.getX()<prey.getX()){
-                        p.setX(p.getX()+1);
+                        JOptionPane.showMessageDialog(panel,"Ofiara została schwytana.");
+                        panel.resetujProgram();
+
                     }else{
-                        p.setX(p.getX()-1);
+
+                        if(p.getX()<prey.getX()){
+                            p.setX(p.getX()+1);
+                        }else{
+                            p.setX(p.getX()-1);
+                        }
+
+                        if(p.getY()<prey.getY()){
+                            p.setY(p.getY()+1);
+                        }else{
+                            p.setY(p.getY()-1);
+                        }
+
                     }
 
-                    if(p.getY()<prey.getY()){
-                        p.setY(p.getY()+1);
-                    }else{
-                        p.setY(p.getY()-1);
-                    }
+
+
+
+
 
                 }
 

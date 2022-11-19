@@ -16,18 +16,14 @@ public class ApplicationWindow extends JFrame {
     private JButton addRideButton;
     private JButton startButton;
     private JButton resetButton;
-    private JLabel jLabel1;
-    private JLabel jLabel2;
-    private JLabel jLabel3;
+    private JLabel speedOfAnimationLabel;
     private ManagementPanel managementPanel;
     private SimulationPanel simulationPanel;
 
-    private JLabel valueOsX;
-    private JLabel valueOsY;
     private JFrame frame;
     private boolean animacjaWlaczona;
     private Thread watekAnimacji;
-    private boolean pause;
+
 
     public ApplicationWindow() {
 
@@ -38,6 +34,7 @@ public class ApplicationWindow extends JFrame {
             setTitle("Prey and Predators");
             setVisible(true);
             setSize(new Dimension(1000,500));
+            setLocationRelativeTo(null);
             setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
     }
@@ -68,15 +65,11 @@ public class ApplicationWindow extends JFrame {
             panelPomocniczy.add(startButton);
             panelPomocniczy.add(resetButton);
 
-                    panelPomocniczy.add(jLabel3);
+                    panelPomocniczy.add(speedOfAnimationLabel);
                     panelPomocniczy.add(animationSpeed);
 
                     managementPanel.add(panelPomocniczy,BorderLayout.NORTH);
 
-//                managementPanel.add(jLabel1);
-//                managementPanel.add(valueOsX);
-//                managementPanel.add(jLabel2);
-//                managementPanel.add(valueOsY);
 
 
 
@@ -115,19 +108,10 @@ public class ApplicationWindow extends JFrame {
     private void createJLabels() {
 
 
-        jLabel1 = new JLabel();
-        jLabel2 = new JLabel();
-        jLabel3 = new JLabel();
-        valueOsX = new JLabel();
-        valueOsY = new JLabel();
+        speedOfAnimationLabel = new JLabel();
+            speedOfAnimationLabel.setText("Predkośc animacji");
 
 
-        jLabel1.setText("ster_os_y");
-        jLabel2.setText("ster_os_x");
-        jLabel3.setText("Predkośc animacji");
-
-        valueOsX.setText("value");
-        valueOsY.setText("value");
 
     }
 
@@ -160,8 +144,6 @@ public class ApplicationWindow extends JFrame {
                 while (animacjaWlaczona) {                                  // petla sprawdzajaca warunek konca czy osiagnieto koniec mapy
                     animacjaWlaczona = simulationPanel.wykonajRuch();       // wykonania ruchu oraz sprawdzenie czy ruch jest mozliwy
                     try {
-                        valueOsX.setText("" + simulationPanel.getMenadzer().getOs_x());            // pobranie wartosci
-                        valueOsY.setText("" + simulationPanel.getMenadzer().getOs_y());
                        Thread.sleep(liczbaAnimacj);                 // uspienie watku
                     } catch (InterruptedException ex) {
                         Logger.getLogger(ApplicationWindow.class.getName()).log(Level.SEVERE, null, ex);
@@ -169,8 +151,6 @@ public class ApplicationWindow extends JFrame {
                     }
                 }
                 JOptionPane.showMessageDialog(frame, "Animacja zakończona");// poinformowanie uzytkownika o zakonczeniu animacji
-                valueOsX.setText("value os x");            // pobranie wartosci
-                valueOsY.setText("value os y");
                 simulationPanel.resetujProgram();
                 watekAnimacji.interrupt();
                 animacjaWlaczona=false;    // po wyjsciu z petli watek zostaje zniszczony
@@ -187,13 +167,11 @@ public class ApplicationWindow extends JFrame {
         }
 
         simulationPanel.resetujProgram();
-        valueOsX.setText("value os x");            // pobranie wartosci
-        valueOsY.setText("value os y");
 
     }
 
     private synchronized int liczbaAnimacjiNaSekunde() {
-        return (int) 1000 / Integer.parseInt(animationSpeed.getValue().toString());
+        return 1000 / Integer.parseInt(animationSpeed.getValue().toString());
     }
 
 
