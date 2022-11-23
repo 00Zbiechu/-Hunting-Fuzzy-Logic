@@ -12,17 +12,18 @@ import javax.swing.*;
 public class ApplicationWindow extends JFrame {
 
 
-    private JSpinner animationSpeed;
     private JButton addRideButton;
     private JButton startButton;
     private JButton resetButton;
-    private JLabel speedOfAnimationLabel;
     private ManagementPanel managementPanel;
     private SimulationPanel simulationPanel;
 
     private JFrame frame;
     private boolean animacjaWlaczona;
-    private Thread watekAnimacji;
+    //private Thread watekAnimacji;
+
+    private AnimationThread animationThread;
+
 
 
     public ApplicationWindow() {
@@ -37,15 +38,14 @@ public class ApplicationWindow extends JFrame {
             setLocationRelativeTo(null);
             setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
+
     }
 
 
     private void initComponents() {
 
 
-        createJLabels();
         createButtons();
-        createSpinner();
         createPanel();
 
 
@@ -65,8 +65,6 @@ public class ApplicationWindow extends JFrame {
             panelPomocniczy.add(startButton);
             panelPomocniczy.add(resetButton);
 
-                    panelPomocniczy.add(speedOfAnimationLabel);
-                    panelPomocniczy.add(animationSpeed);
 
                     managementPanel.add(panelPomocniczy,BorderLayout.NORTH);
 
@@ -105,24 +103,9 @@ public class ApplicationWindow extends JFrame {
 
     }
 
-    private void createJLabels() {
-
-
-        speedOfAnimationLabel = new JLabel();
-            speedOfAnimationLabel.setText("Predkośc animacji");
 
 
 
-    }
-
-
-    private void createSpinner() {
-
-        animationSpeed = new JSpinner();
-        animationSpeed.setModel(new SpinnerNumberModel(10, 10, 50, 1));
-        animationSpeed.setValue(10);
-
-    }
 
 
 
@@ -138,41 +121,24 @@ public class ApplicationWindow extends JFrame {
             animacjaWlaczona = true;
             // wlaczenie animacji
             // tworzenie watku dla animacji
-            watekAnimacji = new Thread(() -> {
+            animationThread = new AnimationThread(simulationPanel, animacjaWlaczona, this);
 
-                int liczbaAnimacj = liczbaAnimacjiNaSekunde();              // pobranie liczby animacji na sekunde od 10 do 50
-                while (animacjaWlaczona) {                                  // petla sprawdzajaca warunek konca czy osiagnieto koniec mapy
-                    animacjaWlaczona = simulationPanel.wykonajRuch();       // wykonania ruchu oraz sprawdzenie czy ruch jest mozliwy
-                    try {
-                       Thread.sleep(liczbaAnimacj);                 // uspienie watku
-                    } catch (InterruptedException ex) {
-                        Logger.getLogger(ApplicationWindow.class.getName()).log(Level.SEVERE, null, ex);
-                        Thread.currentThread().interrupt(); // restore interrupted status
-                    }
-                }
-                JOptionPane.showMessageDialog(frame, "Animacja zakończona");// poinformowanie uzytkownika o zakonczeniu animacji
-                simulationPanel.resetujProgram();
-                watekAnimacji.interrupt();
-                animacjaWlaczona=false;    // po wyjsciu z petli watek zostaje zniszczony
-            });
-            watekAnimacji.start();                                              // wystartowanie watku
         }
+        animationThread.start();
+
     }
 
     private void reset() {
 
         // poinformowanie uzytkownika o zakonczeniu animacji
-       if(!watekAnimacji.isInterrupted()){ // sprawdzenie
-         watekAnimacji.interrupt();
+       if(!animationThread.isInterrupted()){ // sprawdzenie
+           animationThread.interrupt();
         }
 
         simulationPanel.resetujProgram();
 
     }
 
-    private synchronized int liczbaAnimacjiNaSekunde() {
-        return 1000 / Integer.parseInt(animationSpeed.getValue().toString());
-    }
 
 
 }

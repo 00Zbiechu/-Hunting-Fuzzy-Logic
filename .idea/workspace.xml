@@ -7,9 +7,7 @@
     <list default="true" id="87fb4d11-31cd-482a-bc8b-de62b7cbf5ff" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sterowanie/ApplicationWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sterowanie/ApplicationWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sterowanie/FuzzyLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sterowanie/FuzzyLogic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/RoadManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/RoadManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/managementBackgound.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/managementBackgound.jpg" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,6 +85,9 @@
       <workItem from="1668779745533" duration="43000" />
       <workItem from="1668779800133" duration="12386000" />
       <workItem from="1668876486416" duration="4786000" />
+      <workItem from="1668945793042" duration="176000" />
+      <workItem from="1668977062898" duration="118000" />
+      <workItem from="1669211666741" duration="2246000" />
     </task>
     <servers />
   </component>

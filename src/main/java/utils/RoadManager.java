@@ -66,6 +66,10 @@ public class RoadManager {
             // auto nie jest na koncu mapy nastepuje ruch
             if (prey.getX() < panel.getWidth() - prey.getWidth() / 2) {
 
+                if(predators.isEmpty()) {
+                    return false;
+                }
+
                 // pobranie najbliszego punktu do ominiecja
                 Predator najblisza = predators.get(0);
 
