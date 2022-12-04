@@ -1,6 +1,7 @@
 package sterowanie;
 
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 
 import javax.swing.*;
 
@@ -10,7 +11,6 @@ public class AnimationThread extends Thread{
 
     private SimulationPanel simulationPanel;
 
-    private boolean animacjaWlaczona;
 
     private JFrame frame;
 
@@ -21,22 +21,22 @@ public class AnimationThread extends Thread{
 
 
         int liczbaAnimacj = 1000/20;              // pobranie liczby animacji na sekunde od 10 do 50
-        while (animacjaWlaczona) {                                  // petla sprawdzajaca warunek konca czy osiagnieto koniec mapy
-            animacjaWlaczona = simulationPanel.wykonajRuch();       // wykonania ruchu oraz sprawdzenie czy ruch jest mozliwy
+        while (ApplicationWindow.animacjaWlaczona) {                                  // petla sprawdzajaca warunek konca czy osiagnieto koniec mapy
+            ApplicationWindow.animacjaWlaczona = simulationPanel.wykonajRuch();       // wykonania ruchu oraz sprawdzenie czy ruch jest mozliwy
 
             try {
 
                 sleep(liczbaAnimacj);                 // uspienie watku
 
             } catch (InterruptedException ex) {
-
-                interrupt(); // restore interrupted status
+                ApplicationWindow.animacjaWlaczona = false;
+                interrupt();
             }
         }
         JOptionPane.showMessageDialog(frame, "Animacja zakończona");// poinformowanie uzytkownika o zakonczeniu animacji
         simulationPanel.resetujProgram();
         interrupt();
-        animacjaWlaczona=false;    // po wyjsciu z petli watek zostaje zniszczony
+        ApplicationWindow.animacjaWlaczona=false;    // po wyjsciu z petli watek zostaje zniszczony
         }
 
 

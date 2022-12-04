@@ -1,26 +1,25 @@
 package sterowanie;
 
+import lombok.SneakyThrows;
+import utils.Predator;
+import utils.Prey;
+import utils.RoadManager;
+
+import javax.imageio.ImageIO;
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 
-import lombok.SneakyThrows;
-import utils.Prey;
-import utils.RoadManager;
-import utils.Predator;
 
-import javax.imageio.ImageIO;
-import javax.swing.*;
-
-
-public class SimulationPanel extends JPanel{
+public class SimulationPanel extends JPanel {
 
     private RoadManager menadzer;
 
     private boolean dodaniePrzejzdu;  // gdy zmiena false dodajemy przeszkody jak true to auto i zmieniamy zpowrotem
-                                      // zmienna zmieania klikniecie w przycisk dodaj aut wywolujac seter a klikniecie ustawia auto 
+    // zmienna zmieania klikniecie w przycisk dodaj aut wywolujac seter a klikniecie ustawia auto
     private boolean preySet;     // zmienna informujaca czy auto zostalo dodane
 
     BufferedImage backgroundImage;
@@ -30,33 +29,28 @@ public class SimulationPanel extends JPanel{
 
         this.menadzer = new RoadManager();
 
-        this.backgroundImage = ImageIO.read(new File( "src/main/resources/Background.png"));
+        this.backgroundImage = ImageIO.read(new File("src/main/resources/Background.png"));
 
         this.addMouseListener(new MouseAdapter() { // dodanie slchacza na klikniecie
             @Override
             public void mouseClicked(MouseEvent e) {
                 if (dodaniePrzejzdu == false) {
                     menadzer.addPredator(e.getX(), e.getY());
+                } else if (preySet == false) {
+                    menadzer.addPrey(e.getX(), e.getY());
+                    preySet = true;
+                    dodaniePrzejzdu = false;
                 } else {
-                    if (preySet == false) {
-                        menadzer.addPrey(e.getX(), e.getY());
-                        preySet = true;
-                        dodaniePrzejzdu = false;
-                    }
+                    dodaniePrzejzdu = false;
                 }
+
                 repaint();
             }
 
         });
 
 
-
-
-
-
-
     }
-
 
 
     @SneakyThrows
@@ -81,7 +75,7 @@ public class SimulationPanel extends JPanel{
             // rysowanie przeszkod na panelu
             for (Predator p : menadzer.getPredators()) {
 
-                g.drawImage(image, p.getX() - p.getWidth() / 2,  p.getY() - p.getHeight() / 2, null);
+                g.drawImage(image, p.getX() - p.getWidth() / 2, p.getY() - p.getHeight() / 2, null);
 
             }
         }
@@ -93,7 +87,7 @@ public class SimulationPanel extends JPanel{
             File path = new File("src/main/resources");
             BufferedImage image = ImageIO.read(new File(path, "deer.png"));
 
-            g.drawImage(image, prey.getX() - prey.getWidth() / 2,  prey.getY() - prey.getHeight() / 2, null);
+            g.drawImage(image, prey.getX() - prey.getWidth() / 2, prey.getY() - prey.getHeight() / 2, null);
 
         }
 
@@ -116,8 +110,7 @@ public class SimulationPanel extends JPanel{
             repaint(); // malowanie
             return true;
         } else {
-
-            return false; // zwrocenie informacji ze ruch jest nie wykonalny
+            return false; // zwrocenie informacji ze ruch jest niewykonalny
         }
     }
 

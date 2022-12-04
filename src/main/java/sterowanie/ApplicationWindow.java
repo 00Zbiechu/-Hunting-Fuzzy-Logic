@@ -1,6 +1,8 @@
 package sterowanie;
 
 
+import utils.RoadManager;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.util.logging.Level;
@@ -19,7 +21,7 @@ public class ApplicationWindow extends JFrame {
     private SimulationPanel simulationPanel;
 
     private JFrame frame;
-    private boolean animacjaWlaczona;
+    public static boolean animacjaWlaczona = false;
     //private Thread watekAnimacji;
 
     private AnimationThread animationThread;
@@ -121,17 +123,18 @@ public class ApplicationWindow extends JFrame {
             animacjaWlaczona = true;
             // wlaczenie animacji
             // tworzenie watku dla animacji
-            animationThread = new AnimationThread(simulationPanel, animacjaWlaczona, this);
-
+            animationThread = new AnimationThread(simulationPanel, this);
+            animationThread.start();
+        }else{
+            JOptionPane.showMessageDialog(frame, "Animacja trwa.");
         }
-        animationThread.start();
 
     }
 
     private void reset() {
 
         // poinformowanie uzytkownika o zakonczeniu animacji
-       if(!animationThread.isInterrupted()){ // sprawdzenie
+       if(animationThread != null && !animationThread.isInterrupted()){ // sprawdzenie
            animationThread.interrupt();
         }
 
