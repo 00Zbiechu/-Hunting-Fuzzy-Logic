@@ -122,14 +122,14 @@ public class FuzzyLogic {
                     yDirection[1][i] = 1;
 
                 else if (i > 10 && i <= 20)
-                    yDirection[1][i] = ((double) 20 - i) / 3;
+                    yDirection[1][i] =  (20 - i) / 3d;
                 else
                     yDirection[1][i] = 0;
 
                 //W dół
 
                 if (i >= 20 && i <= 30)
-                    yDirection[2][i] = ((double) i - 20) / 3;
+                    yDirection[2][i] =  (i - 20) / 3d;
                 else if (i > 30 && i <= 40)
                     yDirection[2][i] = 1;
                 else

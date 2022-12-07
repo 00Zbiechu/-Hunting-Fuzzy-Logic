@@ -75,8 +75,8 @@ public class RoadManager {
             return false;
         }
 
-        // pobranie najbliszego predatora do ominiecja
-        Predator najblisza = predators.get(0);
+        // pobranie pierwszego predatora z listy
+        Predator closestPredator = predators.get(0);
 
         double r = 0;
 
@@ -85,19 +85,19 @@ public class RoadManager {
 
             Predator temp = predators.get(i);
 
-            r = najblisza.getDistanceFromPrey(prey);
+            r = closestPredator.getDistanceFromPrey(prey);
 
             if (r > temp.getDistanceFromPrey(prey)) {
                 // jesli znajdziemy blizszy zamieniamy
-                najblisza = temp;
+                closestPredator = temp;
 
             }
 
         }
 
         // pobranie roznicy medzy drapieżnikiem a ofiarą
-        int rx = najblisza.getX() - prey.getX();
-        int ry = najblisza.getY() - prey.getY();
+        int rx = closestPredator.getX() - prey.getX();
+        int ry = closestPredator.getY() - prey.getY();
 
 
         if (Math.abs(rx) > 100) {  // maksymalna wartosc i minimalna zbiorow dla wartosci wejsciowych wynosi -100 i 100
