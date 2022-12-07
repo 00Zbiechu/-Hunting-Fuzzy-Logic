@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="87fb4d11-31cd-482a-bc8b-de62b7cbf5ff" name="Changes" comment="">
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controll/ApplicationWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controll/ApplicationWindow.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controll/FuzzyLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controll/FuzzyLogic.java" afterDir="false" />
@@ -12,6 +13,16 @@
       <change beforePath="$PROJECT_DIR$/target/classes/controll/ApplicationWindow.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controll/ApplicationWindow.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/controll/FuzzyLogic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controll/FuzzyLogic.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/panels/SimulationPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/panels/SimulationPanel.class" afterDir="false" />
+=======
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_07_12_2022_18_37_[Changes]/ApplicationWindow.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_07_12_2022_18_37_[Changes]/shelved.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_07_12_2022_18_30_[Changes]/shelved.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_07_12_2022_18_30__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controll/FuzzyLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controll/FuzzyLogic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controll/ApplicationWindow.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controll/ApplicationWindow.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controll/FuzzyLogic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controll/FuzzyLogic.class" afterDir="false" />
+>>>>>>> d4c87ae3ed8fd2024b4b9105a9caf50ca02d0d18
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

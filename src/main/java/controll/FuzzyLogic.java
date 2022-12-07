@@ -118,17 +118,19 @@ public class FuzzyLogic {
                 // Ustawianie termów sterowanie osią Y
 
                 //Do góry
-                if (i >= 0 && i <= 17)
+                if (i >= 0 && i <= 10)
                     yDirection[1][i] = 1;
-                else if (i > 17 && i <= 20)
-                    yDirection[1][i] = (0 - i) / 3d;
+
+                else if (i > 10 && i <= 20)
+                    yDirection[1][i] = ((double) 20 - i) / 3;
                 else
                     yDirection[1][i] = 0;
 
                 //W dół
-                if (i >= 20 && i <= 23)
-                    yDirection[2][i] = (i - 20) / 3d;
-                else if (i > 23 && i <= 40)
+
+                if (i >= 20 && i <= 30)
+                    yDirection[2][i] = ((double) i - 20) / 3;
+                else if (i > 30 && i <= 40)
                     yDirection[2][i] = 1;
                 else
                     yDirection[2][i] = 0;
@@ -139,41 +141,41 @@ public class FuzzyLogic {
 
     public void fuzzify(int x, int y) {
         //Rozmycie
-        double Reg_RX_0 = this.x[1][x + 100];
-        double Reg_RX_1 = this.x[2][x + 100];
-        double Reg_RX_2 = this.x[3][x + 100];
+        double IN_RX0 = this.x[1][x + 100];
+        double IN_RX1 = this.x[2][x + 100];
+        double IN_RX2 = this.x[3][x + 100];
 
         //Blisko NE
-        double Reg_RY_0 = this.y[2][y + 100];
+        double IN_RY0 = this.y[2][y + 100];
         //Daleko NE
-        double Reg_RY_1 = this.y[1][y + 100];
+        double IN_RY1 = this.y[1][y + 100];
         //Blisko SE
-        double Reg_RY_2 = this.y[3][y + 100];
+        double IN_RY2 = this.y[3][y + 100];
         //Daleko SE
-        double Reg_RY_3 = this.y[4][y + 100];
+        double IN_RY3 = this.y[4][y + 100];
 
         //Reguły dla przemieszczenia po X
-        double Reg_0 = Math.min(Reg_RX_0, Reg_RY_0);
-        double Reg_1 = Math.min(Reg_RX_0, Reg_RY_1);
-        double Reg_2 = Math.min(Reg_RX_0, Reg_RY_2);
-        double Reg_3 = Math.min(Reg_RX_0, Reg_RY_3);
+        double Reg_0 = Math.min(IN_RX0, IN_RY0);
+        double Reg_1 = Math.min(IN_RX0, IN_RY1);
+        double Reg_2 = Math.min(IN_RX0, IN_RY2);
+        double Reg_3 = Math.min(IN_RX0, IN_RY3);
 
-        double Reg_4 = Math.min(Reg_RX_1, Reg_RY_0);
-        double Reg_5 = Math.min(Reg_RX_1, Reg_RY_1);
-        double Reg_6 = Math.min(Reg_RX_1, Reg_RY_2);
-        double Reg_7 = Math.min(Reg_RX_1, Reg_RY_3);
+        double Reg_4 = Math.min(IN_RX1, IN_RY0);
+        double Reg_5 = Math.min(IN_RX1, IN_RY1);
+        double Reg_6 = Math.min(IN_RX1, IN_RY2);
+        double Reg_7 = Math.min(IN_RX1, IN_RY3);
 
-        double Reg_8 = Math.min(Reg_RX_2, Reg_RY_0);
-        double Reg_9 = Math.min(Reg_RX_2, Reg_RY_1);
-        double Reg_10 = Math.min(Reg_RX_2, Reg_RY_2);
-        double Reg_11 = Math.min(Reg_RX_2, Reg_RY_3);
+        double Reg_8 = Math.min(IN_RX2, IN_RY0);
+        double Reg_9 = Math.min(IN_RX2, IN_RY1);
+        double Reg_10 = Math.min(IN_RX2, IN_RY2);
+        double Reg_11 = Math.min(IN_RX2, IN_RY3);
 
-        //Reguły dla przemieszczenia po Y
-        double RegYS_0 = Math.min(Reg_RX_1, Reg_RY_0);
-        double RegYS_1 = Math.min(Reg_RX_1, Reg_RY_1);
+        //Reguły dla przemieszczenia po Y - góra dół dla kolizji
+        double RegYS_0 = Math.min(IN_RX1, IN_RY0);
+        double RegYS_1 = Math.min(IN_RX1, IN_RY1);
 
-        double RegYN_0 = Math.min(Reg_RX_1, Reg_RY_2);
-        double RegYN_1 = Math.min(Reg_RX_1, Reg_RY_3);
+        double RegYN_0 = Math.min(IN_RX1, IN_RY2);
+        double RegYN_1 = Math.min(IN_RX1, IN_RY3);
 
 
         //
