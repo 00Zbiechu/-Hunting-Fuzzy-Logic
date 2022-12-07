@@ -92,7 +92,7 @@ public class ApplicationWindow extends JFrame {
         resetButton = createOwnButtons("Resetuj");
 
         addPreyButton.addActionListener(this::setPreyAddButtonState);
-        startButton.addActionListener(evt -> startRide());
+        startButton.addActionListener(evt -> startThreadWithHunting());
         resetButton.addActionListener(evt -> reset());
 
 
@@ -104,7 +104,7 @@ public class ApplicationWindow extends JFrame {
         simulationPanel.setPreyAddButtonClicked(true);
     }
 
-    private void startRide() {
+    private void startThreadWithHunting() {
 
         if (!animationEnabled) {
             animationEnabled = true;
