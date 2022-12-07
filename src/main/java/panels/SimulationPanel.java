@@ -1,9 +1,9 @@
-package sterowanie;
+package panels;
 
 import lombok.SneakyThrows;
-import utils.Predator;
-import utils.Prey;
-import utils.RoadManager;
+import objects.Predator;
+import objects.Prey;
+import objects.RoadManager;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -16,32 +16,31 @@ import java.io.File;
 
 public class SimulationPanel extends JPanel {
 
-    private RoadManager menadzer;
+    private RoadManager manager;
 
-    private boolean dodaniePrzejzdu;  // gdy zmiena false dodajemy przeszkody jak true to auto i zmieniamy zpowrotem
-    // zmienna zmieania klikniecie w przycisk dodaj aut wywolujac seter a klikniecie ustawia auto
-    private boolean preySet;     // zmienna informujaca czy auto zostalo dodane
+    private boolean preyAddButtonClicked;  // zmienna informująca czy przycisk dodania ofary został klikniety
+    private boolean preySet;     // zmienna informujaca czy ofaria zostalo dodane
 
     BufferedImage backgroundImage;
 
     @SneakyThrows
     public SimulationPanel() {
 
-        this.menadzer = new RoadManager();
+        this.manager = new RoadManager();
 
         this.backgroundImage = ImageIO.read(new File("src/main/resources/Background.png"));
 
         this.addMouseListener(new MouseAdapter() { // dodanie slchacza na klikniecie
             @Override
             public void mouseClicked(MouseEvent e) {
-                if (dodaniePrzejzdu == false) {
-                    menadzer.addPredator(e.getX(), e.getY());
+                if (preyAddButtonClicked == false) {
+                    manager.addPredator(e.getX(), e.getY());
                 } else if (preySet == false) {
-                    menadzer.addPrey(e.getX(), e.getY());
+                    manager.addPrey(e.getX(), e.getY());
                     preySet = true;
-                    dodaniePrzejzdu = false;
+                    preyAddButtonClicked = false;
                 } else {
-                    dodaniePrzejzdu = false;
+                    manager.addPredator(e.getX(), e.getY());
                 }
 
                 repaint();
@@ -60,29 +59,29 @@ public class SimulationPanel extends JPanel {
         Graphics2D g2d = (Graphics2D) g;
 
         super.paintComponent(g);
-        g.drawImage(backgroundImage, 0, 0, null); //dodwanie tła panelu
+        g.drawImage(backgroundImage, 0, 0, null);
 
         g2d.setStroke(new BasicStroke(5)); // ustawienie grubosci lini
         g2d.setColor(Color.RED);
-        g2d.drawLine(450, 0, 450, 1000);  // rusowanie mety
+        g2d.drawLine(450, 0, 450, 1000);  // rysowanie mety
 
 
-        if (menadzer.getPredators() != null) {
+        if (manager.getPredators() != null) {
 
             File path = new File("src/main/resources");
             BufferedImage image = ImageIO.read(new File(path, "wolf.png"));
 
-            // rysowanie przeszkod na panelu
-            for (Predator p : menadzer.getPredators()) {
+            // rysowanie predatorów na panelu
+            for (Predator p : manager.getPredators()) {
 
                 g.drawImage(image, p.getX() - p.getWidth() / 2, p.getY() - p.getHeight() / 2, null);
 
             }
         }
 
-        if (menadzer.getPrey() != null && preySet) { // rysowanie ofiary jesli została ustawiona
+        if (manager.getPrey() != null && preySet) { // rysowanie ofiary jesli została ustawiona
 
-            Prey prey = menadzer.getPrey();
+            Prey prey = manager.getPrey();
 
             File path = new File("src/main/resources");
             BufferedImage image = ImageIO.read(new File(path, "deer.png"));
@@ -93,29 +92,25 @@ public class SimulationPanel extends JPanel {
 
     }
 
-    public void resetujProgram() {
-        this.menadzer.resetujProgram();
+    public void resetProgram() {
+        this.manager.resetProgram();
         preySet = false;
         repaint();
     }
 
 
-    public void setDodaniePrzejzdu(boolean dodaniePrzejzdu) {
-        this.dodaniePrzejzdu = dodaniePrzejzdu;
+    public void setPreyAddButtonClicked(boolean preyAddButtonClicked) {
+        this.preyAddButtonClicked = preyAddButtonClicked;
     }
 
-    public boolean wykonajRuch() {
+    public boolean makeMoveRepaint() {
 
-        if (menadzer.wykonajRuch(this)) { // sprawdzenie czy ruch mozna wykonac
+        if (manager.makeMove(this)) { // sprawdzenie czy ruch mozna wykonac
             repaint(); // malowanie
             return true;
         } else {
             return false; // zwrocenie informacji ze ruch jest niewykonalny
         }
-    }
-
-    public RoadManager getMenadzer() {
-        return menadzer;
     }
 
 

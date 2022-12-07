@@ -1,4 +1,4 @@
-package sterowanie;
+package panels;
 
 import lombok.SneakyThrows;
 

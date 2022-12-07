@@ -7,8 +7,8 @@ VAR_INPUT				// dane wejsciowe
 END_VAR
 
 VAR_OUTPUT				// dane wyjsciowe
-	ster_os_x : REAL;               // zmienna odpowiedzialna za sterowanie autem w osi X
-        ster_os_y : REAL;               // zmienna odpowiedzialna za sterowanie autem w osi Y
+	ster_os_x : REAL;               // zmienna odpowiedzialna za controll autem w osi X
+        ster_os_y : REAL;               // zmienna odpowiedzialna za controll autem w osi Y
 END_VAR
 
 FUZZIFY rx                                                          //odleglosc miedzy obiektami Fuzzify input variable 'service': {'poor', 'good' , 'excellent'}

@@ -1,8 +1,8 @@
-package utils;
+package objects;
 
 import lombok.Data;
-import sterowanie.FuzzyLogic;
-import sterowanie.SimulationPanel;
+import controll.FuzzyLogic;
+import panels.SimulationPanel;
 
 import javax.swing.*;
 import java.util.ArrayList;
@@ -13,10 +13,10 @@ public class RoadManager {
     private ArrayList<Predator> predators;
     private Prey prey;
 
-    private double os_x;                                    // wspolrzedne wyjsciowe do sterowania
+    private double os_x;  // wspolrzedne wyjsciowe do sterowania
     private double os_y;
 
-    private final int czuloscRuchu = 4;                       // zmiena odpowiedzialna za czulosc ruchu dla kazdego zbioru jesli dokonamy zmiany musi byc inna , by ruch wydawal sie liniowy nie skokowy
+    private final int moveSensitive = 5; // zmiena odpowiedzialna za czulosc ruchu dla kazdego zbioru jesli dokonamy zmiany musi byc inna , by ruch wydawal sie liniowy nie skokowy
     private FuzzyLogic fuzzy;
 
     public RoadManager() {
@@ -31,7 +31,7 @@ public class RoadManager {
     }
 
 
-    public void resetujProgram() {
+    public void resetProgram() {
 
         this.predators = new ArrayList<>(); // zerowanie drapieżników
         prey = null;                        // kasowanie ofiary
@@ -55,29 +55,29 @@ public class RoadManager {
 
     }
 
-    public boolean wykonajRuch(SimulationPanel panel) {
+    public boolean makeMove(SimulationPanel panel) {
 
 
-        // ruch wykonujemy tak dopoki nie ominiemy przeszkody
         if (prey == null) {
-            return false; // auto dojechalo do mety
+            return false;
         }
 
-        // auto jest na koncu mapy koniec
+        // sprawdzenie czy ofara doszła do mety
         if (prey.getX() >= panel.getWidth() - prey.getWidth() / 2) {
-            return false; // auto dojechalo do mety
+            return false;
         }
 
+        //sprawdzenie czy dodano jakiegos predatora
         if (predators.isEmpty()) {
             return false;
         }
 
-        // pobranie najbliszego punktu do ominiecja
+        // pobranie najbliszego predatora do ominiecja
         Predator najblisza = predators.get(0);
 
         double r = 0;
 
-        // szukanie najbliszego punktu do ominiecia
+        // szukanie najbliszego predatora do ominiecia
         for (int i = 1; i < predators.size(); i++) {
 
             Predator temp = predators.get(i);
@@ -97,35 +97,40 @@ public class RoadManager {
         int ry = najblisza.getY() - prey.getY();
 
 
-        if (Math.abs(rx) > 100) {                                         // maksymalna wartosc i minimalna zbiorow dla wartosci wejsciowych wynosi -100 i 100
+        if (Math.abs(rx) > 100) {  // maksymalna wartosc i minimalna zbiorow dla wartosci wejsciowych wynosi -100 i 100
             rx = rx > 0 ? 100 : -100;
         }
         if (Math.abs(ry) > 100) {
             ry = ry > 0 ? 100 : -100;
         }
-        fuzzy.Fuzzify(rx, ry);                                      // obliczenia zbiorow
-        os_x = fuzzy.GetDirectionX();       //pobraniemetodasierodka ciezkosci warrtosci wyjsciowych
-        os_y = fuzzy.GetDirectionY();
+        fuzzy.fuzzify(rx, ry);        // obliczenia zbiorow
+        os_x = fuzzy.getOutX(); //pobraniemetodasierodka ciezkosci warrtosci wyjsciowych
+        os_y = fuzzy.getOutY();
 
-        prey.setX(prey.getX() + (int) os_x / czuloscRuchu);             // ustawianie wspolrzednych 4 oznacza czuloscruchu
-        prey.setY(prey.getY() - (int) os_y / czuloscRuchu);
+        prey.setX(prey.getX() + (int) os_x / moveSensitive); // ustawianie wspolrzednych 4 oznacza czulosc ruchu
+        prey.setY(prey.getY() - (int) os_y / moveSensitive);
 
         //Poruszanie predatorami na podstawie pozycji ofiary + przypadek schwytania ofiary
         for (Predator p : predators) {
 
+
+            // sprawdzenie odleglosci miedzy predatorem, a ofiara jesli < 20 to ofiara schwytana
             if (p.getDistanceFromPrey(prey) < 20) {
 
                 JOptionPane.showMessageDialog(panel, "Ofiara została schwytana.");
-                panel.resetujProgram();
+                panel.resetProgram();
                 return false;
             }
 
+
+             //poruszanie wilka po osi x
                 if (p.getX() < prey.getX()) {
                     p.setX(p.getX() + 1);
                 } else {
                     p.setX(p.getX() - 1);
                 }
 
+            //poruszanie wilka po osi y
                 if (p.getY() < prey.getY()) {
                     p.setY(p.getY() + 1);
                 } else {

@@ -1,6 +1,4 @@
-package utils;
-
-
+package objects;
 
 
 public class Prey extends Predator {
@@ -8,5 +6,5 @@ public class Prey extends Predator {
         super(x, y);
         this.setWidth(50);
         this.setHeight(50);
-    }  
+    }
 }
