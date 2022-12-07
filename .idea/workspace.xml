@@ -6,26 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="87fb4d11-31cd-482a-bc8b-de62b7cbf5ff" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/fcl/auto.fcl" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/fcl/auto.fcl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sterowanie/AnimationThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/threads/AnimationThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sterowanie/ApplicationWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controll/ApplicationWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sterowanie/FuzzyLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controll/FuzzyLogic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sterowanie/ManagementPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/panels/ManagementPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sterowanie/SimulationPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/panels/SimulationPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/Predator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/objects/Predator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/Prey.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/objects/Prey.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/RoadManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/objects/RoadManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/sterowanie/AnimationThread.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/sterowanie/ApplicationWindow.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/sterowanie/FuzzyLogic.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/sterowanie/ManagementPanel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/sterowanie/SimulationPanel$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/sterowanie/SimulationPanel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/utils/Predator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/utils/Prey.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/utils/RoadManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controll/ApplicationWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controll/ApplicationWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/objects/RoadManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/objects/RoadManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controll/ApplicationWindow.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controll/ApplicationWindow.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

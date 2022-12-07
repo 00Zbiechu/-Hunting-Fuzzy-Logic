@@ -12,7 +12,7 @@ import java.awt.event.ActionEvent;
 
 public class ApplicationWindow extends JFrame {
 
-    private JButton addRideButton;
+    private JButton addPreyButton;
     private JButton startButton;
     private JButton resetButton;
     private ManagementPanel managementPanel;
@@ -55,15 +55,15 @@ public class ApplicationWindow extends JFrame {
         managementPanel = new ManagementPanel();
         managementPanel.setLayout(new BorderLayout());
 
-        JPanel panelPomocniczy = new JPanel();
-        panelPomocniczy.setSize(new Dimension(200, 200));
+        JPanel divPanel = new JPanel();
+        divPanel.setSize(new Dimension(200, 200));
 
-        panelPomocniczy.add(addRideButton);
-        panelPomocniczy.add(startButton);
-        panelPomocniczy.add(resetButton);
+        divPanel.add(addPreyButton);
+        divPanel.add(startButton);
+        divPanel.add(resetButton);
 
 
-        managementPanel.add(panelPomocniczy, BorderLayout.NORTH);
+        managementPanel.add(divPanel, BorderLayout.NORTH);
 
 
         simulationPanel = new SimulationPanel();
@@ -87,11 +87,11 @@ public class ApplicationWindow extends JFrame {
 
     private void createButtons() {
 
-        addRideButton = createOwnButtons("Dodaj ofiarę");
+        addPreyButton = createOwnButtons("Dodaj ofiarę");
         startButton = createOwnButtons("Start");
         resetButton = createOwnButtons("Resetuj");
 
-        addRideButton.addActionListener(this::setAddRide);
+        addPreyButton.addActionListener(this::setPreyAddButtonState);
         startButton.addActionListener(evt -> startRide());
         resetButton.addActionListener(evt -> reset());
 
@@ -99,7 +99,7 @@ public class ApplicationWindow extends JFrame {
     }
 
 
-    private void setAddRide(ActionEvent evt) {
+    private void setPreyAddButtonState(ActionEvent evt) {
 
         simulationPanel.setPreyAddButtonClicked(true);
     }

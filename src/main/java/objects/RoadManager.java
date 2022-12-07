@@ -2,21 +2,24 @@ package objects;
 
 import lombok.Data;
 import controll.FuzzyLogic;
+import lombok.Getter;
 import panels.SimulationPanel;
 
 import javax.swing.*;
 import java.util.ArrayList;
 
-@Data
 public class RoadManager {
 
     private ArrayList<Predator> predators;
     private Prey prey;
 
+    @Getter
     private double os_x;  // wspolrzedne wyjsciowe do sterowania
+
+    @Getter
     private double os_y;
 
-    private final int moveSensitive = 5; // zmiena odpowiedzialna za czulosc ruchu dla kazdego zbioru jesli dokonamy zmiany musi byc inna , by ruch wydawal sie liniowy nie skokowy
+    private final int moveSensitive = 4; // zmiena odpowiedzialna za czulosc ruchu dla kazdego zbioru jesli dokonamy zmiany musi byc inna , by ruch wydawal sie liniowy nie skokowy
     private FuzzyLogic fuzzy;
 
     public RoadManager() {
@@ -103,8 +106,8 @@ public class RoadManager {
         if (Math.abs(ry) > 100) {
             ry = ry > 0 ? 100 : -100;
         }
-        fuzzy.fuzzify(rx, ry);        // obliczenia zbiorow
-        os_x = fuzzy.getOutX(); //pobraniemetodasierodka ciezkosci warrtosci wyjsciowych
+        fuzzy.fuzzify(rx, ry);  // obliczenia zbiorow
+        os_x = fuzzy.getOutX(); //pobranie metody środka ciężkości wartości wyjsciowych
         os_y = fuzzy.getOutY();
 
         prey.setX(prey.getX() + (int) os_x / moveSensitive); // ustawianie wspolrzednych 4 oznacza czulosc ruchu
@@ -115,7 +118,7 @@ public class RoadManager {
 
 
             // sprawdzenie odleglosci miedzy predatorem, a ofiara jesli < 20 to ofiara schwytana
-            if (p.getDistanceFromPrey(prey) < 20) {
+            if (p.getDistanceFromPrey(prey) < 15) {
 
                 JOptionPane.showMessageDialog(panel, "Ofiara została schwytana.");
                 panel.resetProgram();
