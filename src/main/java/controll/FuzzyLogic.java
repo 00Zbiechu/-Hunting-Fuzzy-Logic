@@ -24,6 +24,7 @@ public class FuzzyLogic {
 
     //Wypełnianie termów
     private void fillLogic() {
+
         for (int i = 0; i < 201; i++) {
             x[0][i] = i - 100;
             y[0][i] = i - 100;
@@ -32,6 +33,7 @@ public class FuzzyLogic {
                 yDirection[0][i] = i - 20;
             }
         }
+
         for (int i = 0; i < 201; i++) {
             // Ustawianie termów RX
 
@@ -39,7 +41,7 @@ public class FuzzyLogic {
             if (i >= 0 && i < 90)
                 x[1][i] = 1;
             else if (i >= 90 && i <= 100)
-                x[1][i] = ((double) 100 - i) / 10;
+                x[1][i] =  (100 - i) / 10d;
             else
                 x[1][i] = 0;
 
@@ -47,13 +49,13 @@ public class FuzzyLogic {
             if (i >= 100 && i <= 190)
                 x[2][i] = 1;
             else if (i > 190 && i <= 200)
-                x[2][i] = ((double) 200 - i) / 10;
+                x[2][i] = (200 - i) / 10d;
             else
                 x[2][i] = 0;
 
             //Z przodu
             if (i >= 190 && i <= 200)
-                x[3][i] = ((double) i - 190) / 10;
+                x[3][i] = (i - 190) / 10d;
             else
                 x[3][i] = 0;
 
@@ -63,33 +65,33 @@ public class FuzzyLogic {
             if (i >= 0 && i <= 40)
                 y[1][i] = 1;
             else if (i > 40 && i <= 50)
-                y[1][i] = ((double) 50 - i) / 10;
+                y[1][i] =  (50 - i) / 10d;
             else
                 y[1][i] = 0;
 
             //Blisko NE
             if (i >= 40 && i <= 50)
-                y[2][i] = ((double) i - 40) / 10;
+                y[2][i] =  (i - 40) / 10d;
             else if (i > 50 && i <= 90)
                 y[2][i] = 1;
             else if (i > 90 && i <= 100)
-                y[2][i] = ((double) 100 - i) / 10;
+                y[2][i] =  100 - i / 10d;
             else
                 y[2][i] = 0;
 
             //Blisko SE
             if (i >= 100 && i <= 110)
-                y[3][i] = ((double) i - 100) / 10;
+                y[3][i] = (i - 100) / 10d;
             else if (i > 110 && i <= 150)
                 y[3][i] = 1;
             else if (i > 150 && i <= 160)
-                y[3][i] = ((double) 160 - i) / 10;
+                y[3][i] =  160 - i / 10d;
             else
                 y[3][i] = 0;
 
             //Daleko SE
             if (i >= 150 && i <= 160)
-                y[4][i] = ((double) i - 150) / 10;
+                y[4][i] =  (i - 150) / 10d;
             else if (i > 160 && i <= 200)
                 y[4][i] = 1;
             else
@@ -102,13 +104,13 @@ public class FuzzyLogic {
                 if (i >= 0 && i <= 10)
                     xDirection[1][i] = 1;
                 else if (i > 10 && i <= 20)
-                    xDirection[1][i] = ((double) 20 - i) / 10;
+                    xDirection[1][i] =  (20 - i) / 10d;
                 else
                     xDirection[1][i] = 0;
 
                 //W przód
                 if (i >= 20 && i <= 30)
-                    xDirection[2][i] = ((double) i - 20) / 10;
+                    xDirection[2][i] = (i - 20) / 10d;
                 else if (i > 30 && i <= 40)
                     xDirection[2][i] = 1;
                 else
@@ -119,13 +121,13 @@ public class FuzzyLogic {
                 if (i >= 0 && i <= 17)
                     yDirection[1][i] = 1;
                 else if (i > 17 && i <= 20)
-                    yDirection[1][i] = ((double) 20 - i) / 3;
+                    yDirection[1][i] = (0 - i) / 3d;
                 else
                     yDirection[1][i] = 0;
 
                 //W dół
                 if (i >= 20 && i <= 23)
-                    yDirection[2][i] = ((double) i - 20) / 3;
+                    yDirection[2][i] = (i - 20) / 3d;
                 else if (i > 23 && i <= 40)
                     yDirection[2][i] = 1;
                 else

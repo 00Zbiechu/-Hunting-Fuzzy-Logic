@@ -1,13 +1,17 @@
 package controll;
 
 
+import lombok.SneakyThrows;
 import panels.ManagementPanel;
 import panels.SimulationPanel;
 import threads.AnimationThread;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.awt.image.BufferedImage;
+import java.io.File;
 
 
 public class ApplicationWindow extends JFrame {
@@ -48,6 +52,7 @@ public class ApplicationWindow extends JFrame {
 
     }
 
+    @SneakyThrows
     private void createPanel() {
 
         setLayout(new GridLayout(1, 2));
@@ -56,6 +61,7 @@ public class ApplicationWindow extends JFrame {
         managementPanel.setLayout(new BorderLayout());
 
         JPanel divPanel = new JPanel();
+        divPanel.setBackground(new Color(51, 26, 0) );
         divPanel.setSize(new Dimension(200, 200));
 
         divPanel.add(addPreyButton);

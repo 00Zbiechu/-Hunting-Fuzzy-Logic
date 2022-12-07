@@ -4,7 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="87fb4d11-31cd-482a-bc8b-de62b7cbf5ff" name="Changes" comment="" />
+    <list default="true" id="87fb4d11-31cd-482a-bc8b-de62b7cbf5ff" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controll/ApplicationWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controll/ApplicationWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controll/FuzzyLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controll/FuzzyLogic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/panels/SimulationPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/panels/SimulationPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controll/ApplicationWindow.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controll/ApplicationWindow.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controll/FuzzyLogic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controll/FuzzyLogic.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/panels/SimulationPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/panels/SimulationPanel.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -33,22 +41,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/intelliJ projects/Hunting-Fuzzy-Logic&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "D:/IntelliJ Workspace/Hunting-Fuzzy-Logic/src/main/resources",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\IntelliJ Workspace\Hunting-Fuzzy-Logic\src\main\resources" />
       <recent name="$PROJECT_DIR$/src/main/resources" />
     </key>
   </component>
@@ -92,6 +101,7 @@
       <workItem from="1670179366809" duration="6146000" />
       <workItem from="1670353914173" duration="28000" />
       <workItem from="1670420134409" duration="3690000" />
+      <workItem from="1670440258922" duration="6315000" />
     </task>
     <servers />
   </component>

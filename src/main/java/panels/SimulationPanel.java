@@ -61,8 +61,8 @@ public class SimulationPanel extends JPanel {
         super.paintComponent(g);
         g.drawImage(backgroundImage, 0, 0, null);
 
-        g2d.setStroke(new BasicStroke(5)); // ustawienie grubosci lini
-        g2d.setColor(Color.RED);
+        g2d.setStroke(new BasicStroke(1)); // ustawienie grubosci lini
+        g2d.setColor(Color.GREEN);
         g2d.drawLine(450, 0, 450, 1000);  // rysowanie mety
 
 
