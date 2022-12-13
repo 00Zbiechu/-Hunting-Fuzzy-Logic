@@ -107,8 +107,8 @@ public class RoadManager {
             ry = ry > 0 ? 100 : -100;
         }
         fuzzy.fuzzify(rx, ry);  // obliczenia zbiorow
-        os_x = fuzzy.getOutX(); //pobranie metody środka ciężkości wartości wyjsciowych
-        os_y = fuzzy.getOutY();
+        os_x = 12.48d;
+        os_y = fuzzy.getOutY(); //pobranie metody środka ciężkości wartości wyjsciowych
 
         prey.setX(prey.getX() + (int) os_x / moveSensitive); // ustawianie wspolrzednych 4 oznacza czulosc ruchu
         prey.setY(prey.getY() - (int) os_y / moveSensitive);
@@ -117,7 +117,7 @@ public class RoadManager {
         for (Predator p : predators) {
 
 
-            // sprawdzenie odleglosci miedzy predatorem, a ofiara jesli < 20 to ofiara schwytana
+            // sprawdzenie odleglosci miedzy predatorem, a ofiara jesli < 15 to ofiara schwytana
             if (p.getDistanceFromPrey(prey) < 15) {
 
                 JOptionPane.showMessageDialog(panel, "Ofiara została schwytana.");

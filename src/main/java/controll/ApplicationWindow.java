@@ -37,7 +37,7 @@ public class ApplicationWindow extends JFrame {
         setTitle("Prey and Predators");
         setVisible(true);
         setSize(new Dimension(1000, 500));
-        setLocationRelativeTo(null);
+        //setLocationRelativeTo(null);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
     }
