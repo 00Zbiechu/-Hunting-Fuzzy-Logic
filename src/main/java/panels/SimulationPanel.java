@@ -12,6 +12,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.util.Objects;
 
 
 public class SimulationPanel extends JPanel {
@@ -28,7 +29,7 @@ public class SimulationPanel extends JPanel {
 
         this.manager = new RoadManager();
 
-        this.backgroundImage = ImageIO.read(new File("src/main/resources/Background.png"));
+        backgroundImage = ImageIO.read(Objects.requireNonNull(getClass().getClassLoader().getResource("Background.png")));
 
         this.addMouseListener(new MouseAdapter() { // dodanie slchacza na klikniecie
             @Override
@@ -68,8 +69,7 @@ public class SimulationPanel extends JPanel {
 
         if (manager.getPredators() != null) {
 
-            File path = new File("src/main/resources");
-            BufferedImage image = ImageIO.read(new File(path, "wolf.png"));
+            BufferedImage image = ImageIO.read(Objects.requireNonNull(getClass().getClassLoader().getResource("wolf.png")));
 
             // rysowanie predatorów na panelu
             for (Predator p : manager.getPredators()) {
@@ -83,8 +83,7 @@ public class SimulationPanel extends JPanel {
 
             Prey prey = manager.getPrey();
 
-            File path = new File("src/main/resources");
-            BufferedImage image = ImageIO.read(new File(path, "deer.png"));
+            BufferedImage image = ImageIO.read(Objects.requireNonNull(getClass().getClassLoader().getResource("deer.png")));
 
             g.drawImage(image, prey.getX() - prey.getWidth() / 2, prey.getY() - prey.getHeight() / 2, null);
 

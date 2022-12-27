@@ -15,7 +15,7 @@ public class ManagementPanel extends JPanel {
     @SneakyThrows
     public ManagementPanel(){
 
-        backgroundImage = ImageIO.read(new File( "src/main/resources/managementBackgound.png"));
+        backgroundImage = ImageIO.read(getClass().getClassLoader().getResource("managementBackgound.png"));
 
     }
 

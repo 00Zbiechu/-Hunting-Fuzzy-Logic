@@ -36,10 +36,17 @@ public class ApplicationWindow extends JFrame {
         setResizable(false);
         setTitle("Prey and Predators");
         setVisible(true);
+        centreWindow(this);
         setSize(new Dimension(1000, 500));
-        setLocationRelativeTo(null);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
+    }
+
+    private void centreWindow(Window frame) {
+        Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
+        int x = (int) ((dimension.getWidth() - frame.getWidth()) / 2);
+        int y = (int) ((dimension.getHeight() - frame.getHeight()) / 2);
+        frame.setLocation(x, y);
     }
 
 
