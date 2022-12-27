@@ -36,8 +36,8 @@ public class ApplicationWindow extends JFrame {
         setResizable(false);
         setTitle("Prey and Predators");
         setVisible(true);
-        centreWindow(this);
         setSize(new Dimension(1000, 500));
+        centreWindow(this);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
     }
